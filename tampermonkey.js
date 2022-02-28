@@ -8,6 +8,7 @@
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant        none
 // @require https://code.jquery.com/jquery-3.6.0.min.js
+// @run-at context-menu
 // ==/UserScript==
 
 var $, jQuery;
