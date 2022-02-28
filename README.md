@@ -40,3 +40,10 @@ python -m anki_maker
 ```
 
 Paste the code from the "Alert"
+
+# FastAPI
+
+Test Url:
+```
+https://ankidictccmaker.jimbob888.repl.co/get-anki/?first_language=EN&second_language=DE&first_string=soon&second_string=bald&first_extras=adv&second_extras=adv&second_audio=//audio.dict.cc/speak.audio.v2.php%3Ferror_as_text%3D1%26type%3Dmp3%26id%3D1468372%26lang%3Dde_rec_ip%26lp%3DDEEN
+```
