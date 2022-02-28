@@ -1,2 +1,2 @@
 genanki
-wget
+requests
