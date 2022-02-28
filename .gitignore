@@ -153,3 +153,4 @@ cython_debug/
 
 audio_files
 *.apkg
+created_packages
