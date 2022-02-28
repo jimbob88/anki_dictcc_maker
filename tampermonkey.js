@@ -24,7 +24,7 @@ function download_butt(location) {
     var eng_string = "";
     var de_string = "";
     var de_gender = "";
-    var en_extra = "";
+    var eng_extra = "";
 
     location.parent().parent().find(".td7nl").each(function(idx){
         var temp_str = "";
@@ -54,7 +54,7 @@ function download_butt(location) {
         if (idx == 0) {
            eng_string = temp_str;
            if ($(this).find("var").length > 0) {
-               en_extra = $(this).find("var").attr("title");
+               eng_extra = $(this).find("var").attr("title");
            }
         } else {
             de_string = temp_str;
@@ -88,7 +88,7 @@ function download_butt(location) {
     console.log(de_string);
     console.log(de_gender);
     console.log(audiofile);
-    alert([eng_string, en_extra, de_string, de_gender, audiofile].join('¬'));
+    alert([eng_string, eng_extra, de_string, de_gender, audiofile].join('¬'));
 
 }
 
