@@ -21,10 +21,10 @@ def create_model(lang1: str, lang2: str):
         _id,
         f"Dictcc Vocab Model ({lang1}/{lang2})",
         fields=[
-            {"name": "{lang1}"},
-            {"name": "{lang1}_extras"},
-            {"name": "{lang2}"},
-            {"name": "{lang2}_extras"},
+            {"name": f"{lang1}"},
+            {"name": f"{lang1}_extras"},
+            {"name": f"{lang2}"},
+            {"name": f"{lang2}_extras"},
             {"name": "first_audiofile"},
             {"name": "second_audiofile"},
         ],
@@ -33,13 +33,15 @@ def create_model(lang1: str, lang2: str):
                 "name": "Card 1",
                 "qfmt": "{{%s}}<br/>{{%s_extras}}<br/>{{first_audiofile}}"
                 % (lang1, lang1),
-                "afmt": "{{%s}}<br/>{{%s_extra}}<br/>{{second_audiofile}}",
+                "afmt": "{{FrontSide}}<br/><hr id=answer><br/>{{%s}}<br/>{{%s_extras}}<br/>{{second_audiofile}}"
+                % (lang2, lang2),
             },
             {
                 "name": "Card 2",
-                "afmt": "{{%s}}<br/>{{%s_extras}}<br/>{{first_audiofile}}"
+                "afmt": "{{FrontSide}}<br/><hr id=answer><br/>{{%s}}<br/>{{%s_extras}}<br/>{{first_audiofile}}"
                 % (lang1, lang1),
-                "qfmt": "{{%s}}<br/>{{%s_extra}}<br/>{{second_audiofile}}",
+                "qfmt": "{{%s}}<br/>{{%s_extras}}<br/>{{second_audiofile}}"
+                % (lang2, lang2),
             },
         ],
     )
@@ -96,7 +98,8 @@ async def read_item(
         download_file(first_audio, first_audio_loc)
     else:
         first_audio_loc = ""
-    if second_audio:
+    if second_audio and second_audio != 'undefined':
+        print(second_audio)
         _id2 = re.search(get_id_re, second_audio).group(1)
         second_audio_loc = (
             f"audio_files/{d_uuid}/{first_language}{second_language}_{_id2}.mp3"
@@ -111,8 +114,8 @@ async def read_item(
             first_extras,
             second_string,
             second_extras,
-            f"[sound:{first_audio_loc}]",
-            f"[sound:{second_audio_loc}]",
+            f"[sound:{first_audio_loc.split('/')[-1]}]",
+            f"[sound:{second_audio_loc.split('/')[-1]}]",
         ],
     )
 
@@ -121,12 +124,16 @@ async def read_item(
 
     pkg = genanki.Package(deck)
     if first_audio_loc and second_audio_loc:
+        print("Added both audio files")
         pkg.media_files = [first_audio_loc, second_audio_loc]
     elif first_audio_loc:
+        print("Added first")
         pkg.media_files = [first_audio_loc]
     elif second_audio_loc:
+        print("Added second", pkg.media_files)
         pkg.media_files = [second_audio_loc]
-    
+        print(pkg.media_files)
+ 
     if not os.path.exists(f"created_packages/{d_uuid}"):
         os.makedirs(f"created_packages/{d_uuid}")
     file_location = f"created_packages/{d_uuid}/package.apkg"
