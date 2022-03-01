@@ -9,6 +9,15 @@ from fastapi.responses import FileResponse
 
 app = FastAPI()
 
+styling = """
+.card {
+ font-family: arial;
+ font-size: 20px;
+ text-align: center;
+ color: black;
+ background-color: white;
+}
+"""
 
 @app.get("/")
 async def read_root():
@@ -44,6 +53,7 @@ def create_model(lang1: str, lang2: str):
                 % (lang2, lang2),
             },
         ],
+        css=styling,
     )
     return (_id, model)
 
@@ -114,8 +124,8 @@ async def read_item(
             first_extras,
             second_string,
             second_extras,
-            f"[sound:{first_audio_loc.split('/')[-1]}]",
-            f"[sound:{second_audio_loc.split('/')[-1]}]",
+            f"[sound:{first_audio_loc.split('/')[-1]}]" if first_audio_loc else '',
+            f"[sound:{second_audio_loc.split('/')[-1]}]" if second_audio_loc else '',
         ],
     )
 
@@ -130,9 +140,8 @@ async def read_item(
         print("Added first")
         pkg.media_files = [first_audio_loc]
     elif second_audio_loc:
-        print("Added second", pkg.media_files)
+        print("Added second")
         pkg.media_files = [second_audio_loc]
-        print(pkg.media_files)
  
     if not os.path.exists(f"created_packages/{d_uuid}"):
         os.makedirs(f"created_packages/{d_uuid}")
