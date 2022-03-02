@@ -1,4 +1,17 @@
 # Anki Dict.cc Maker
+# The Pure JS Version
+## Get the Extensions
+First, we need Moesif Origin & CORS Changer: [Firefox](https://addons.mozilla.org/en-US/firefox/addon/moesif-origin-cors-changer1/) [Chrome](https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc)
+
+Second we need Tampermonkey: [tampermonkey](https://www.tampermonkey.net/)
+
+## Make Moesif only run on dict.cc 
+#### Chrome
+Right-click on the Moesif symbol (orange) on the top right (in your extensions) and press "manage extensions". Scroll down to "Site access" and click on the dropdown that says "On all sites" and change it to "On specific sites". Click "Add a new page" and write `https://*.dict.cc/*`
+
+
+
+# The Python Edition (Deprecated)
 ## Setup
 
 ### Python Area
