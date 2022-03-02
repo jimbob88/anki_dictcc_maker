@@ -9,6 +9,24 @@ Second we need Tampermonkey: [tampermonkey](https://www.tampermonkey.net/)
 #### Chrome
 Right-click on the Moesif symbol (orange) on the top right (in your extensions) and press "manage extensions". Scroll down to "Site access" and click on the dropdown that says "On all sites" and change it to "On specific sites". Click "Add a new page" and write `https://*.dict.cc/*`
 
+## Install the JS script
+ - Press the tampermonkey symbol in the top right
+ - Press the "dashboard" button
+ - Click the "Utilities" tab
+ - Paste the following URL into "Import from URL":
+ ```
+ https://raw.githubusercontent.com/jimbob88/anki_dictcc_maker/main/tampermonkey_standalone.js
+ ```
+ - Press install
+
+## Usage
+ - Go to any dictionary item: [example](https://www.dict.cc/?s=in+difficulties)
+ - Right Click and follow the menu:
+ ```
+Tampermonkey/
+├─ Dict.cc -> Anki Convertor Standalone
+ ```
+ - Press the right hand side, and import the downloaded Deck.apkg
 
 
 # The Python Edition (Deprecated)
