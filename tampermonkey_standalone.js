@@ -37,8 +37,8 @@ async function download_butt(location, handside) {
     console.log("spacer");
     var first_string = "";
     var second_string = "";
-    var first_extras = "";
-    var second_extras = "";
+    var first_extras = "&nbsp;";
+    var second_extras = "&nbsp;";
 
     location.parent().parent().find(".td7nl").each(function(idx){
         var temp_str = "";
@@ -97,7 +97,7 @@ async function download_butt(location, handside) {
     var lang1 = _lang.slice(0,2).toUpperCase();
     var lang2 = _lang.slice(2,4).toUpperCase();
 
-    
+
 
     const [_deckid, anki_model] = create_model(lang1, lang2);
 
@@ -162,7 +162,7 @@ async function download_butt(location, handside) {
     console.log("opened");
 
 
-    
+
 
 }
 
@@ -241,4 +241,3 @@ function create_model(lang1, lang2) {
 
     // Your code here...
 })();
-
