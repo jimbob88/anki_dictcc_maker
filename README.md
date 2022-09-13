@@ -1,5 +1,36 @@
 # Anki Dict.cc Maker
-# The Pure JS Version
+
+This piece of software helps you make anki cards out of dict.cc entries. For example, [Stehen bleiben!](https://www.dict.cc/?s=Stehen%20bleiben!), can be converted into a card that will have one side be the english translation `Freeze!` and the reverse be `Stehen bleiben!`. The content used by this software is entirely the copyright of the `dict.cc` maintainers.
+
+# The Pure JS Version 2.0
+## Installation
+1. Install [tampermonkey](https://www.tampermonkey.net/)
+2. Install the script:
+ - Press the tampermonkey symbol in the top right
+ - Press the "dashboard" button
+ - Click the "Utilities" tab
+ - Paste the following URL into "Import from URL":
+ ```
+ https://raw.githubusercontent.com/jimbob88/anki_dictcc_maker/main/tampermonkey_standalone2.js
+ ```
+ - Press install
+
+## Usage
+ - Go to any dictionary item: [example](https://www.dict.cc/?s=in+difficulties)
+ - Right Click and follow the menu:
+ ```
+Tampermonkey/
+├─ Dict.cc -> Anki Convertor Standalone
+ ```
+ - Play some audio for said example.
+ - Press the right hand side, and import the downloaded Deck.apkg
+
+---
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+# Legacy information for the old scripts
+
+
+# The Pure JS Version 1.0
 ## Get the Extensions
 First, we need Moesif Origin & CORS Changer: [Firefox](https://addons.mozilla.org/en-US/firefox/addon/moesif-origin-cors-changer1/) [Chrome](https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc)
 
